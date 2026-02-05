@@ -23,7 +23,7 @@ Requirements
 ```pip install -r requirements```
 
 <p style="text-align: left;">
-  <img src="docs/screenshot.png" alt="CleanText" width="500">
+  <img src="docs/img.png" alt="CleanText" width="500">
 </p>
 
 Here in this example it found 88 broken sentences. 

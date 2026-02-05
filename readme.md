@@ -26,7 +26,7 @@ Requirements
   <img src="docs/img.png" alt="CleanText" width="500">
 </p>
 
-Here in this example it found 88 broken sentences. 
+Here in this example it found 3 broken sentences. 
 
 **Original 1:** shows first part of the sentence 
 

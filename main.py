@@ -6,7 +6,7 @@ import zipfile
 from bs4 import BeautifulSoup
 
 from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QColor, QFont, QKeySequence, QShortcut, QTextCharFormat, QTextCursor
+from PySide6.QtGui import QColor, QFont, QIcon, QKeySequence, QShortcut, QTextCharFormat, QTextCursor
 from PySide6.QtWidgets import (
     QApplication,
     QSpinBox,
@@ -129,6 +129,9 @@ QStatusBar { background: #e9f0f8; color: #5a6f89; border-top: 1px solid #d2ddeb;
 QStatusBar QLabel { color: #5a6f89; padding: 4px 8px; }
 """
 
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+APP_ICON_PATH = os.path.join(APP_DIR, "assets", "epub-sentence-fixer-icon.svg")
+
 STATUS_PENDING = "Pending"
 STATUS_FIXED = "Fixed"
 STATUS_SKIPPED = "Skipped"
@@ -138,6 +141,8 @@ class EPUBFixerWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("EPUB Sentence Fixer")
+        if os.path.exists(APP_ICON_PATH):
+            self.setWindowIcon(QIcon(APP_ICON_PATH))
         self.resize(1500, 980)
 
         self.paragraphs = []
@@ -904,6 +909,8 @@ def main():
     app = QApplication([])
     app.setStyle("Fusion")
     app.setStyleSheet(STYLESHEET)
+    if os.path.exists(APP_ICON_PATH):
+        app.setWindowIcon(QIcon(APP_ICON_PATH))
     window = EPUBFixerWindow()
     window.show()
     app.exec()

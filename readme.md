@@ -1,35 +1,98 @@
-Allows you to easily fix broken sentences caused by PDF-to-EPUB conversions, directly inside the EPUB file.
+﻿# EPUB Sentence Fixer
 
-A common issue when converting books from PDF is that sentences are split in half, with the second part placed on 
-a new line as a separate paragraph.
+EPUB Sentence Fixer helps you review and repair broken sentences caused by poor PDF-to-EPUB conversions.
 
-The software automatically detects such issues and presents them to you, 
-allowing you to review and choose which ones to fix.
+The app scans an EPUB, detects likely sentence splits where text was incorrectly pushed into a new paragraph, and presents each case for manual review. You can inspect both original paragraphs, edit the proposed merge, accept or skip each suggestion, and save a corrected copy of the EPUB.
 
-Original file is preserved. Software will log all changes and save log file.
+The original source EPUB remains untouched. Accepted changes are written into a new output EPUB and logged in a separate text file.
 
-### Example:
-Broken
-```
+## What The App Shows
+
+For each detected case, the app displays:
+
+- `Original paragraph 1`
+- `Original paragraph 2`
+- `Split detected`
+- `Proposed corrected paragraph`
+
+The detected split is highlighted in the original paragraph panels and in the proposed corrected paragraph, so the merge point is easy to review.
+
+## Workflow
+
+1. Open an EPUB file.
+2. Review each detected suggestion from the left sidebar.
+3. Edit the proposed corrected paragraph if needed.
+4. Click `Accept Fix` or `Skip`.
+5. Save the corrected EPUB when review is complete.
+
+## Features
+
+- Light desktop UI with a review-oriented layout
+- Sidebar with all detected suggestions
+- Status tracking for pending, fixed, and skipped suggestions
+- Highlighted split markers in original and merged text
+- Global content font-size control for review panels
+- Keyboard shortcuts for faster desktop workflow
+- Unsaved-change protection on close
+- Output log for accepted fixes
+
+## Example
+
+Broken:
+
+```text
 This is an example of a broken sentence that was split
 into two separate paragraphs during conversion.
 ```
-Fixed
-```
+
+Fixed:
+
+```text
 This is an example of a broken sentence that was split into two separate paragraphs during conversion.
-Requirements
 ```
 
-```pip install -r requirements```
+## Requirements
 
-<p style="text-align: left;">
-  <img src="docs/img.png" alt="CleanText" width="500">
-</p>
+Install the dependencies listed in [requirements](C:/Users/damir/PycharmProjects/EPUB_FIX_Sentence/requirements):
 
-Here in this example it found 3 broken sentences. 
+```text
+ebooklib
+beautifulsoup4
+pyside6
+```
 
-**Original 1:** shows first part of the sentence 
+## Run
 
-**Original 2:** shows second part of the sentence in a new paragraph
+```powershell
+python main.py
+```
 
-Below in a preview window you can preview how it will look when fixed and decide to accept the change or skip it.
+If you use the local virtual environment:
+
+```powershell
+.venv\Scripts\python.exe main.py
+```
+
+## Build
+
+Build a Windows executable with PyInstaller:
+
+```powershell
+.venv\Scripts\pyinstaller.exe --noconfirm --clean --windowed --name "EPUB Sentence Fixer" main.py
+```
+
+If you add a Windows `.ico` file later, use:
+
+```powershell
+.venv\Scripts\pyinstaller.exe --noconfirm --clean --windowed --name "EPUB Sentence Fixer" --icon assets\epub-sentence-fixer-icon.ico main.py
+```
+
+## Assets
+
+Project icon:
+
+- [epub-sentence-fixer-icon.svg](C:/Users/damir/PycharmProjects/EPUB_FIX_Sentence/assets/epub-sentence-fixer-icon.svg)
+
+Current UI preview:
+
+![EPUB Sentence Fixer UI](C:/Users/damir/PycharmProjects/EPUB_FIX_Sentence/docs/img.png)

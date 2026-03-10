@@ -6,6 +6,11 @@ The app scans an EPUB, detects likely sentence splits where text was incorrectly
 
 The original source EPUB remains untouched. Accepted changes are written into a new output EPUB and logged in a separate text file.
 
+<p style="text-align: center;">
+  <img src="docs/img.png" alt="CleanText" width="800">
+</p>
+
+
 ## What The App Shows
 
 For each detected case, the app displays:
@@ -93,6 +98,4 @@ Project icon:
 
 - [epub-sentence-fixer-icon.svg](C:/Users/damir/PycharmProjects/EPUB_FIX_Sentence/assets/epub-sentence-fixer-icon.svg)
 
-Current UI preview:
 
-![EPUB Sentence Fixer UI](C:/Users/damir/PycharmProjects/EPUB_FIX_Sentence/docs/img.png)
